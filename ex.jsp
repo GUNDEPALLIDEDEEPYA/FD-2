@@ -6,11 +6,10 @@
 	String email=request.getParameter("email");
 	try
 	{
-
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@ntsocietyserver:1521:oralbrce","IPC85","IPC85");
 		String qry="insert into empcseb values(?,?,?)";
-		PreparedStatement pstmt=con.preparedStatement(qry);
+		PreparedStatement pstmt=con.prepareStatement(qry);
 		pstmt.setInt(1,eid);
 		pstmt.setString(2,ename);
 		pstmt.setString(3,email);
